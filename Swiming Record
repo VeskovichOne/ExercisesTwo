@@ -1,0 +1,32 @@
+using System;
+
+namespace SoftuNIExerciseConditionalStatements
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            double worldRecord = double.Parse(Console.ReadLine());
+            double meters = double.Parse(Console.ReadLine());
+            double time = double.Parse(Console.ReadLine());
+
+            double needToSwim = meters * time;
+            double firstResist = Math.Floor(meters / 15);
+            double finalResistance = firstResist * 12.5;
+            double finalTime = needToSwim + finalResistance;
+            double needForRecord = finalTime - worldRecord;
+            if (finalTime >= worldRecord)
+            {
+                double need = worldRecord - finalTime;
+                need = Math.Abs(need);
+                Console.WriteLine($"No, he failed! He was {need:f2} seconds slower.");
+            }
+            else if (worldRecord>finalTime)
+            {
+                Console.WriteLine($"Yes, he succeeded! The new world record is {finalTime:f2} seconds.");
+            }
+           
+
+        }
+    }
+}
